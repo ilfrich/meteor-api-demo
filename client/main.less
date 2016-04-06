@@ -1,0 +1,41 @@
+/* CSS declarations go here */
+
+@brandColor: #9B2D2A;
+@brandColorHigh: #d73d3a;
+
+body {
+  background-color: #444;
+  margin-top: 15px;
+}
+
+
+button.btn {
+  background-color: @brandColor;
+}
+button.btn:hover {
+  background-color: @brandColorHigh;
+}
+button.btn.active {
+  border: 2px dashed #fff;
+}
+
+
+.tab-container {
+  background-color: #ccc;
+
+  h3 {
+    font-size: 16px;
+    border-bottom: 1px solid @brandColor;
+    color: @brandColor;
+  }
+
+
+  button {
+    margin-bottom: 15px;
+  }
+
+  select {
+    display: block;
+  }
+}
+

@@ -1,0 +1,123 @@
+<head>
+  <title>API DEMO</title>
+</head>
+
+<body>
+  {{> container}}
+</body>
+
+<template name="container">
+	<div class="container">
+		<div class="row">
+			<div class="col s3">
+				<button class="btn active" data-open="container-get">Simple Get</button>
+			</div>
+			<div class="col s3">
+				<button class="btn" data-open="container-reload">Manual Reload</button>
+			</div>
+			<div class="col s3">
+				<button class="btn" data-open="container-reload-auto">Automatic Reload</button>
+			</div>
+			<div class="col s3">
+				<button class="btn" data-open="container-switch">Switch Data Sets</button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="container-get" class="col s12 tab-container">
+				{{> containerGet}}
+			</div>
+			<div id="container-reload" class="col s12 tab-container" style="display: none;">
+				{{> containerReload}}
+			</div>
+			<div id="container-reload-auto" class="col s12 tab-container" style="display: none;">
+				{{> containerReloadAuto}}
+			</div>
+			<div id="container-switch" class="col s12 tab-container" style="display: none;">
+				{{> containerSwitch}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+<template name="containerGet">
+	<h3>Simple Get</h3>
+
+	<ul>
+		{{#each getApiData}}
+			<li>{{name}}</li>
+		{{/each}}
+	</ul>
+</template>
+
+
+
+
+
+<template name="containerReload">
+	<h3>Reloading Data</h3>
+
+	<ul>
+		{{#each getApiData}}
+			<li>{{name}}</li>
+		{{/each}}
+	</ul>
+
+	<button class="btn" id="reload-data"><span class="fa fa-refresh"></span> Refresh</button>
+</template>
+
+
+
+
+<template name="containerReloadAuto">
+	<h3>Automatically Reloading Data</h3>
+
+	<ul>
+		{{#each getApiData}}
+			<li>{{name}}</li>
+		{{/each}}
+	</ul>
+
+	<p>Reload Interval: {{currentReloadInterval}} seconds</p>
+	<p class="range-field">
+		<input type="range" id="reload-interval" min="1" max="15" />
+	</p>
+</template>
+
+
+
+
+<template name="containerSwitch">
+	<h3>Switching Data Sets</h3>
+
+	<div class="row">
+		{{#with getApiData}}
+			<div class="col s4"><label for="entry-id">ID</label></div>
+			<div class="col s4"><label for="entry-name">Name</label></div>
+			<div class="col s4"><label for="entry-desc">Date</label></div>
+
+			<div class="col s4 input-field">
+				<input type="text" id="entry-id" value="{{id}}" placeholder="ID" />
+			</div>
+			<div class="col s4 input-field">
+				<input type="text" id="entry-name" value="{{name}}" placeholder="Name" />
+			</div>
+			<div class="col s4 input-field">
+				<input type="text" id="entry-desc" value="{{description}}" placeholder="Description" />
+			</div>
+		{{/with}}
+	</div>
+
+	<div class="row">
+		<div class="col s12 input-field">
+			<select id="entry-switch">
+				<option selected="selected" disabled="disabled">Please select an entry</option>
+				{{#each apiEntries}}
+					<option value="{{id}}">{{name}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+</template>
