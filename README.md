@@ -15,6 +15,9 @@ objects with the following structure:
 }
 ```
 
+Additionally the `id` of any returned object can be used to request: http://localhost:9080/hub/api/provider/`id`, which
+will just return a single entry (same structure as above).
+
 But of course this example can be adapted to any web service and any data structure.
 
 ## Custom Packages Used
