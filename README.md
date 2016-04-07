@@ -1,6 +1,6 @@
 # Meteor REST API Demo
 
-Meteor 1.3 API data access demo
+Meteor 1.3 API data access demo. Talk on YouTube: https://www.youtube.com/watch?v=_vmIVpp3Ujw
 
 ## Current Status
 
